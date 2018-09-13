@@ -1,0 +1,30 @@
+#{extends 'Orders/orders.html'/}
+
+<div class="container">
+    <div class="cart">
+
+        <br/>
+        <h3>
+            <span>PENDING ORDERS</span>
+        </h3>
+
+        <table>
+            <tr>
+                <th>Delete</th>
+                <th class="name-header">Client Name</th>
+                <th>Details</th>
+                <th>Total</th>
+            </tr>
+            #{list items:orders, as: 'order'}
+            <tr>
+                <td><a id="link" href="@{Orders.delete(order.id)}">Delete</a></td>
+                <td>${order.client}</td>
+                <td><a id="link" href="@{Orders.retrieveDetails(order.id)}">Details</a></td>
+                <td>R${order.calculateOrderTotal()}</td>
+            </tr>
+            #{/list}
+        </table>
+
+    </div>
+</div>
+

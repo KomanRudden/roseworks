@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+
+    <center><img src="http://roseworks.co.za/public/images/mail-logo.jpg"></center>
+
+    <center><p style="color: red">Thank you for your order!</p></center>
+    <br/>
+    <p>Postage and packaging has now been calculated into your order. Please proceed to the payment portal using either the button or link below.</p>
+    <h3>
+        <span>CLIENT DETAILS</span>
+    </h3>
+    <table style="border-collapse: collapse">
+        <tr>
+            <td style="width: 100px;">Name</td>
+            <td>${order.client.firstName}</td>
+        </tr>
+        <tr>
+            <td style="width: 100px;">Surname</td>
+            <td>${order.client.surname}</td>
+        </tr>
+        <tr>
+            <td style="width: 100px;">E-mail</td>
+            <td>${order.client.email}</td>
+        </tr>
+        <tr>
+            <td style="width: 100px;">Contact No.</td>
+            <td>${order.client.telephone}</td>
+        </tr>
+    </table>
+    <h3>
+        <span>POSTAL DETAILS</span>
+    </h3>
+    <table style="border-collapse: collapse">
+        <tr>
+            <td style="width: 200px;">Address Line 1</td>
+            <td>${order.client.streetAddressLine1}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">Address Line 2</td>
+            <td>${order.client.streetAddressLine2}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">Province/State/County</td>
+            <td>${order.client.province}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">City</td>
+            <td>${order.client.city}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">Post Code</td>
+            <td>${order.client.streetPostCode}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">Country</td>
+            <td>${order.client.country}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">Delivery Type</td>
+            <td>${order.client.deliveryType}</td>
+        </tr>
+    </table>
+
+    <br/>
+    <h3>
+        <span>ITEMS ORDERED</span>
+    </h3>
+    <table style="border: solid 1px black; border-collapse: collapse">
+        <tr>
+            <th style="width: 150px; border: 1px solid black">Name</th>
+            <th style="width: 150px; border: 1px solid black">Model</th>
+            <th style="width: 150px; border: 1px solid black">Product ID</th>
+            <th style="width: 150px; border: 1px solid black">Quantity</th>
+            <th style="width: 150px; border: 1px solid black">Price</th>
+        </tr>
+        #{list items:order.lineItems, as: 'lineItem'}
+        <tr>
+            <td style="width: 150px; border: 1px solid black; text-align: center">${lineItem.product.productName}</td>
+            <td style="width: 150px; border: 1px solid black; text-align: center">${lineItem.product.productCategory}</td>
+            <td style="width: 150px; border: 1px solid black; text-align: center">${lineItem.product.productId}</td>
+            <td style="width: 150px; border: 1px solid black; text-align: center">${lineItem.quantity}</td>
+            <td style="width: 150px; border: 1px solid black; text-align: center">R${lineItem.product.productPrice}</td>
+        </tr>
+        #{/list}
+    </table>
+    <br/>
+    <center>
+        <h4>
+            <span style="color: red">Invoice Total : R${total} (incl shipping)</span>
+        </h4>
+    </center>
+    <form action="https://secure.safeshop.co.za/SafePay/Lite/Index.asp" method="post" id=frmPay name=frmPay>
+        <div class="bottom clearfix">
+            <center><input type="submit" id="submit" value="Proceed To Secure Payment Portal" /></center>
+        </div>
+        <input type="hidden" name="SafeKey" value="{E0760398-2515-4811-86A8-E11778A18B90}"/>
+        <!-- The Safe Key-->
+        <input type="hidden" name="MerchantReferenceNumber" value="900134990"/>
+        <!-- Merchant Transaction Reference-->
+        <input type="hidden" name="TransactionAmount" value="${payuTotal}"/>
+        <!-- Transaction Amount in Cents -->
+        <input type="hidden" name="CurrencyCode" value="ZAR"/>
+        <!-- Transaction Amount in Cents -->
+        <input type="hidden" name="SafeTrack" value=""/>
+        <!-- Optional - SafeTrack GUID -->
+        <input type="hidden" name="ReceiptURL" value="http://www.roseworks.co.za/thankYou"/>
+        <!-- Transaction Redirect Url-->
+        <input type="hidden" name="FailURL" value="http://www.roseworks.co.za/paymentCancelled"/>
+        <!-- Transaction Failure Redirect Url-->
+        <input type="hidden" name="TransactionType" value="Auth_Settle"/>
+        <!-- Transaction  Type (Auth, Auth_Settle) -->
+    </div>
+</form>
+    <br/>
+    <center>
+        <h4>
+            <span style="color: red">NOTE : Should the button above not work please click on this link</span>
+        </h4>
+        <a href="http://www.roseworks.co.za/paymentLink?payuTotal=${payuTotal}">Proceed to Roseworks</a>
+    </center>
+<span style="padding: 0px;"></span>
+</body>
+</html>
+
+

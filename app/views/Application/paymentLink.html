@@ -1,0 +1,39 @@
+#{extends 'main.html' /}
+
+<div class="container">
+
+    <div class="inner-container clearfix">
+
+        <div id="about-us">
+
+            <br/><br/>
+            <center>
+                <h4>
+                    <span style="color: red">Invoice Total : R${total} (incl shipping)</span>
+                </h4>
+            </center>
+            <form action="https://secure.safeshop.co.za/SafePay/Lite/Index.asp" method="post" id=frmPay name=frmPay>
+                <div class="bottom clearfix">
+                    <center><input type="submit" id="submit" value="Proceed To Secure Payment Portal" /></center>
+                </div>
+                <input type="hidden" name="SafeKey" value="{E0760398-2515-4811-86A8-E11778A18B90}"/>
+                <!-- The Safe Key-->
+                <input type="hidden" name="MerchantReferenceNumber" value="900134990"/>
+                <!-- Merchant Transaction Reference-->
+                <input type="hidden" name="TransactionAmount" value="${payuTotal}"/>
+                <!-- Transaction Amount in Cents -->
+                <input type="hidden" name="CurrencyCode" value="ZAR"/>
+                <!-- Transaction Amount in Cents -->
+                <input type="hidden" name="SafeTrack" value=""/>
+                <!-- Optional - SafeTrack GUID -->
+                <input type="hidden" name="ReceiptURL" value="http://www.roseworks.co.za/application/thankyou"/>
+                <!-- Transaction Redirect Url-->
+                <input type="hidden" name="FailURL" value="http://www.roseworks.co.za/application/error"/>
+                <!-- Transaction Failure Redirect Url-->
+                <input type="hidden" name="TransactionType" value="Auth_Settle"/>
+                <!-- Transaction  Type (Auth, Auth_Settle) -->
+            </form>
+        </div>
+    </div>
+
+</div>

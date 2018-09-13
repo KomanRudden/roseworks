@@ -1,0 +1,68 @@
+#{extends 'main.html'/}
+
+<div class="container">
+
+    <br/>
+    <!-- START of INNER-CONTAINER -->
+    <div class="inner-container clearfix">
+
+        <!-- START TABS EXAMPLE -->
+        <div class="product-tabs">
+            <ul class="tabs">
+                <li><a>NOTES</a></li>
+            </ul>
+            <div class="panes">
+                <div class="tab-pane">
+                    <p>Fill in your personal details and query below and then click the Submit button below to send.<br><br>
+
+                        Thank you.</p>
+                </div>
+            </div>
+        </div>
+        <!-- END TABS EXAMPLE -->
+
+        <div id="checkout">
+
+            <br/><br/>
+            <h3><span>CONTACT US</span></h3>
+            <div class="pane current">
+                #{form @Application.sendQuery()}
+                <div class="top clearfix">
+                    <div class="left-side">
+                        <fieldset>
+                            <legend>Your Personal Details</legend>
+                            #{field 'query.fullName'}
+                            <p>
+                                <label><span>*</span>First Name:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="text" class="text" required id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                            #{field 'query.email'}
+                            <p>
+                                <label><span>*</span>E-mail Address:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="email" class="text" required id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                            #{field 'query.query'}
+                            <p>
+                                <label><span>*</span>Your Query:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="text" class="text" required id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}                            
+                        </fieldset>
+                    </div>
+
+                </div><!-- end of .data -->
+                <div class="bottom clearfix">
+                    <input type="submit" id="submit" value="Submit" />
+                </div><!-- end of .bottom -->
+                #{/form}
+            </div>
+
+        </div><!-- end of #product-list -->
+
+    </div>
+    <!-- END of INNER-CONTAINER -->
+
+
+</div><!-- end of .container -->

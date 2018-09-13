@@ -1,0 +1,99 @@
+    #{extends 'main.html'/}
+
+<div class="container">
+
+    <br/>
+    <!-- START of INNER-CONTAINER -->
+    <div class="inner-container clearfix">
+
+        <!-- START TABS EXAMPLE -->
+        <div class="product-tabs">
+            <ul class="tabs">
+                <li><a>DESCRIPTION</a></li>
+                <li><a>NOTES</a></li>
+            </ul>
+            <div class="panes">
+                <div class="tab-pane">
+                    <p>${product.productDescription}</p>
+                </div>
+                <div class="tab-pane">
+                    <p>These include fabric with the design printed upon it, a photograph, full instructions, 
+                        stitch notes and a DMC to Anchor and Madeira colour conversion chart. NO THREADS OR NEEDLES INCLUDED.
+                        The sizes given are those of the actual embroidered area and not the fabric size, which is larger.</p>
+                </div>
+            </div>
+        </div>
+        <!-- END TABS EXAMPLE -->
+
+        <div id="product" class="clearfix">
+            <div class="product-gallery">
+                <div class="large-image">
+                    <img src="${product.productImageUrl}" alt="" />
+                </div>
+            </div><!-- end of .product-gallery -->
+
+            <div class="product-detail">
+                <h2>${product.productName}</h2>
+                <cite>BY ${product.productCreator}</cite>
+                <p>Product Code: ${product.productId}</p>
+                <p>Availability:<span>In Stock</span></p>
+                <p class="price">Price: R${product.productPrice}</p>
+                <p class="size">Size: ${product.productSize}</p>
+                #{form @Application.addToCart(product.id, product.quantity), method:'POST'}
+                <div class="options-form">
+                    <input type="submit" class="submit-btn" value="ADD TO CART" />
+                </div>
+                #{/form}
+                <div class="clearfix rat-rev">
+                    <div class="rating">
+                        <p class="size">Difficulty:</p>
+                        <a href="#" class="yellow">&nbsp;</a>
+                        <a href="#" class="yellow">&nbsp;</a>
+                        <a href="#" class="yellow">&nbsp;</a>
+                        <a href="#" class="gray">&nbsp;</a>
+                        <a href="#" class="gray">&nbsp;</a>
+                    </div>
+                </div>
+            </div><!-- end of .product-detail -->
+        </div><!-- end of #contents -->
+
+        <div id="sidebar">
+            <h3><span>CATEGORIES</span></h3>
+            <ul>
+                <li><a href="@{Application.catalogue('Design Embroidery Kits')}">Design Embroidery Kits</a></li>
+                <li><a href="@{Application.catalogue('Whimsical Design Kits')}">Whimsical Design Kits</a></li>
+                <li><a href="@{Application.catalogue('Exotic Design Kits')}">Exotic Design Kits</a></li>
+                <li><a href="@{Application.catalogue('Jacobean-Style Design Kits')}">Jacobean-Style Design Kits</a></li>
+                <li><a href="@{Application.catalogue('Miniature Jacobean Kits')}">Miniature Jacobean Kits</a></li>
+                <li><a href="@{Application.catalogue('Jacobean Quilt Block Kits')}">Jacobean Quilt Block Kits</a></li>
+                <li><a href="@{Application.catalogue('Botanical Design Kits')}">Botanical Design Kits</a></li>
+                <li><a href="@{Application.catalogue('Decor Design Kits')}">Decor Design Kits</a></li>
+                <li><a href="@{Application.catalogue('Miniature Design Kits')}">Miniature Design Kits</a></li>
+            </ul>
+        </div><!-- end of #sidebar -->
+
+    </div>
+    <!-- END of INNER-CONTAINER -->
+
+    <!-- START of RELATED PRODUCTS -->
+    <div class="product-listing">
+        <h3><span>RELATED</span></h3>
+
+        <ul class="clearfix">
+            #{list items:products, as: 'product'}
+            <li class="product">
+                <a href="@{Application.product(product.id)}" class="thumb"><img src="${product.productImageUrl}" alt="" /></a>
+                <a href="@{Application.product(product.id)}" class="title">${product.productName}</a>
+                <div class="clearfix info">
+                    #{form @Application.addToCart(product.id), method:'POST', id:'product.productId' }
+                    <input type="submit" class="add-to-cart" value="ADD TO CART" />
+                    #{/form}
+                    <span class="price-text">R<span>${product.productPrice}</span></span>
+                </div>
+            </li>
+            #{/list}
+        </ul>
+    </div>
+    <!-- END of LATEST PRODUCTS -->
+
+</div><!-- end of .container -->

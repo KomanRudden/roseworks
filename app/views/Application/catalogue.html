@@ -1,0 +1,52 @@
+#{extends 'main.html' /}
+
+<div class="container">
+
+    <!-- START of INNER-CONTAINER -->
+    <div class="inner-container clearfix">
+
+        <div id="all-product">
+
+            <br/><br/>
+            <h3><span>${productCategory}</span></h3>
+            <ul class="clearfix grid-view">
+                #{list items:products, as: 'product'}
+                <li class="product">
+                    <a href="@{Application.product(product.id)}" class="thumb"><img src="${product.productImageUrl}" alt="" /></a>
+                    <div class="data">
+                        <a href="@{Application.product(product.id)}" class="title">${product.productName}</a>
+                        <p>${product.productDescription}</p>
+                        <div class="clearfix info">
+                            #{form @Application.addToCart(product.id), method:'POST', id:'product.productId' }
+                                <input type="submit" class="add-to-cart" value="ADD TO CART" />
+                            #{/form}
+                            <span class="price-text">R<span>${product.productPrice}</span></span>
+                        </div>
+                    </div>
+                </li>
+                #{/list}
+            </ul>
+        </div><!-- end of #product-list -->
+
+        <br/><br/><br/><br/><br/><br/>
+        <div id="sidebar">
+            <h3><span>CATEGORIES</span></h3>
+            <ul>
+                <li><a href="@{Application.catalogue('Design Embroidery Kits')}">Design Embroidery Kits</a></li>
+                <li><a href="@{Application.catalogue('Whimsical Design Kits')}">Whimsical Design Kits</a></li>
+                <li><a href="@{Application.catalogue('Exotic Design Kits')}">Exotic Design Kits</a></li>
+                <li><a href="@{Application.catalogue('Jacobean-Style Design Kits')}">Jacobean-Style Design Kits</a></li>
+                <li><a href="@{Application.catalogue('Miniature Jacobean Kits')}">Miniature Jacobean Kits</a></li>
+                <li><a href="@{Application.catalogue('Jacobean Quilt Block Kits')}">Jacobean Quilt Block Kits</a></li>
+                <li><a href="@{Application.catalogue('Botanical Design Kits')}">Botanical Design Kits</a></li>
+                <li><a href="@{Application.catalogue('Decor Design Kits')}">Decor Design Kits</a></li>
+                <li><a href="@{Application.catalogue('Miniature Design Kits')}">Miniature Design Kits</a></li>
+            </ul>
+        </div><!-- end of #sidebar -->
+
+    </div>
+    <!-- END of INNER-CONTAINER -->
+
+</div><!-- end of .container -->
+
+

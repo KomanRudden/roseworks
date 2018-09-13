@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <title>Roseworks - Design Embroidery Kits</title>
+
+        <link rel="stylesheet" type="text/css" media="all" href="@{'/public/stylesheets/style.css'}" />
+        <link rel="stylesheet" type="text/css" media="all" href="@{'/public/stylesheets/jquery.selectBox.css'}" />
+        <link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/screen.css'}" media="all" />
+
+        <link rel="shortcut icon" type="image/x-icon" href="@{'/public/images/favicon.ico'}" />
+
+    </head>
+    <body>
+
+        <div class="header-wrapper">
+
+            <div id="header" class="clearfix">
+
+                <a href="@{Application.index()}" class="logo"><img src="@{'/public/images/roseworksLogo.png'}" alt="Roseworks Logo" /></a>
+
+                <strong class="slogan">EMBROIDERY DESIGNS</strong>
+
+                <ul class="top-nav">
+                    <li><a href="@{Application.shoppingCart()}">SHOPPING CART</a></li>
+                    <li><a href="@{Application.checkout()}">CHECK OUT</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="navigation-wrapper">
+
+            <ul id="navigation" class="clearfix">
+                <li><a href="@{Application.index()}"><img src="@{'public/images/home.png'}" alt="" />Home</a></li>
+                <li><a href="#">Catalogue</a>
+                    <ul>
+                        <li><a href="@{Application.catalogue('Design Embroidery Kits')}">Design Embroidery Kits</a></li>
+                        <li><a href="@{Application.catalogue('Whimsical Design Kits')}">Whimsical Design Kits</a></li>
+                        <li><a href="@{Application.catalogue('Exotic Design Kits')}">Exotic Design Kits</a></li>
+                        <li><a href="@{Application.catalogue('Jacobean-Style Design Kits')}">Jacobean-Style Design Kits</a></li>
+                        <li><a href="@{Application.catalogue('Miniature Jacobean Kits')}">Miniature Jacobean Kits</a></li>
+                        <li><a href="@{Application.catalogue('Jacobean Quilt Block Kits')}">Jacobean Quilt Block Kits</a></li>
+                        <li><a href="@{Application.catalogue('Botanical Design Kits')}">Botanical Design Kits</a></li>
+                        <li><a href="@{Application.catalogue('Decor Design Kits')}">Decor Design Kits</a></li>
+                        <li><a href="@{Application.catalogue('Miniature Design Kits')}">Miniature Design Kits</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="@{Application.aboutUs}">About Us</a></li>
+                <li><a href="@{Application.contactUs}">Contact</a></li>
+            </ul>
+
+        </div>
+
+        #{doLayout/}
+
+        <div class="copyright-wrapper">
+
+            <div id="copyrights" class="clearfix">
+                <p class="left">copyright of <a href="#">Roseworks</a> <span>2016</span> All Rights Reserved</p>
+                <p class="right">website by Koman Rudden</p>
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="@{'/public/js/jquery-1.6.2.min.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/jquery.easing.1.3.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/jquery.selectBox.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/jquery.cycle.all.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/tabs-accordian.js'}"></script>
+        <script type="text/JavaScript" src="@{'/public/js/cloud-zoom.1.0.2.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/jquery.animate-colors-min.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/jquery.form.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/jquery.validate.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/script.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/jquery.easing.1.3.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/jquery.localscroll-1.2.7-min.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/jquery.scrollTo-min.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/jcarousellite_1.0.1.min.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/jquery.cycle.min.js'}"></script>
+        <script type="text/javascript" src="@{'/public/js/execute-scripts.js'}"></script>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-47476464-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+      </script>
+    </body>
+</html>

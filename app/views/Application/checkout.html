@@ -1,0 +1,178 @@
+#{extends 'main.html'/}
+
+<div class="container">
+
+    <br/>
+    <div class="inner-container clearfix">
+
+        <div class="product-tabs">
+            <ul class="tabs">
+                <li><a>NOTES</a></li>
+            </ul>
+            <div class="panes">
+                <div class="tab-pane">
+                    <p>Complete the address details below and then click the Submit button below to finalise your order.<br><br>
+
+                        You will receive an email confirming your order. Postage costs will then be added and you will receive another email confirming this along with a variety of payment options.<br><br>
+
+                        Payment may be made by VISA or MasterCard (link to our secure online credit card payment processing gateway will be provided), cheque, direct deposit or telegraphic transfer.
+                        Banking details will be given on the invoice.<br><br>
+
+                        If you have any queries please contact us on our <a style="text-decoration: underline" href="@{Application.contactUs}">contact page</a>.<br><br>
+
+                        Thank you.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="checkout">
+
+            <br/><br/>
+            <h3><span>CHECKOUT</span></h3>
+            <h4>Billing Details</h4>
+            <div class="pane current">
+                #{form @Application.submit()}
+                <div class="top clearfix">
+                    <div class="left-side">
+                        <fieldset>
+                            <legend>Your Personal Details</legend>
+                            #{field 'client.firstName'}
+                            <p>
+                                <label><span>*</span>First Name:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="text" class="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                            #{field 'client.surname'}
+                            <p>
+                                <label><span>*</span>Last Name:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="text" class="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                            #{field 'client.email'}
+                            <p>
+                                <label><span>*</span>E-mail Address:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="email" class="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                            #{field 'client.telephone'}
+                            <p>
+                                <label><span>*</span>Telephone:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="tel" class="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                            <p>
+                                <label>Fax:</label>
+                                <input type="tel" id="fax" class="text" />
+                            </p>
+                            <p>
+                                <label>Cell:</label>
+                                <input type="tel" id="cell" class="text" />
+                            </p>
+                        </fieldset>
+                    </div>
+
+                    <div class="right-side">
+                        <fieldset>
+                            <legend>Your Address</legend>
+                            #{field 'client.streetAddressLine1'}
+                            <p>
+                                <label><span>*</span>Address Line 1:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="text" class="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                            #{field 'client.streetAddressLine2'}
+                            <p>
+                                <label>Address Line 2:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="text" class="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                            #{field 'client.city'}
+                            <p>
+                                <label><span>*</span>City:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="text" class="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                            #{field 'client.streetPostCode'}
+                            <p>
+                                <label><span>*</span>Post Code:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="text" class="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                            #{field 'client.province'}
+                            <p>
+                                <label><span>*</span>Province/County/State:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                                <input type="text" class="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                            #{field 'client.country'}
+                            <p>
+                                <label><span>*</span>Country:&nbsp;&nbsp;<span class="error">${field.error}</span>    </label>
+                                <input type="text" class="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+                            </p>
+                            #{/field}
+                        </fieldset>
+                    </div>
+
+                    <div class="left-side">
+                        <br/>
+                        #{field 'client.deliveryType'}
+                        <fieldset>
+                            <legend>Delivery</legend>
+                            <label><span>*</span>Delivery Type:&nbsp;&nbsp;<span class="error">${field.error}</span></label>
+                            <p class="checkout-selectbox">
+                                <select id="${field.id}" name="${field.name}">
+                                    <option value="Normal Post">Normal Post</option>
+                                    <option value="Fast Mail">Fast Mail</option>
+                                    <option value="Registered Parcel Post">Registered Parcel Post</option>
+                                    <option value="Priority Mail">Priority Mail To Counter (24hrs)</option>
+                                    <option value="Speed Services">Speed Services To Door, Box Or Counter (24hrs)</option>
+                                </select>
+                            </p>
+                        </fieldset>
+                        #{/field}
+                    </div>
+                </div>
+                <div class="bottom clearfix">
+                    <input type="submit" id="submit" value="Submit" />
+                </div>
+                #{/form}
+            </div>
+
+            <h4>Your Cart</h4>
+        </div>
+        <div class="cart">
+
+            <table>
+                <tr>
+                    <th>Remove</th>
+                    <th>Image</th>
+                    <th class="name-header">Name</th>
+                    <th>Model</th>
+                    <th>Product ID</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+                #{list items:cart, as: 'lineItem'}
+                <tr>
+                    <td><a id="link" href="@{Application.delete(lineItem)}">Delete</a></td>
+                    <td class="thumb"><img src="${lineItem.product.productImageUrl}" alt="" /></td>
+                    <td class="name"><a id="link" href="@{Application.product(lineItem.product.id)}">${lineItem.product.productName}</a></td>
+                    <td>${lineItem.product.productCategory}</td>
+                    <td>${lineItem.product.productId}</td>
+                    <td>${lineItem.quantity}</td>
+                    <td>R${lineItem.product.productPrice}</td>
+                    <td class="red">R${lineItem.product.productPrice}</td>
+                </tr>
+                #{/list}
+            </table>
+
+            <div class="right-column">
+                <p class="total">Total: R${totalPrice.format('0.00')}</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

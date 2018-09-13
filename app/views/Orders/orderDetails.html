@@ -1,0 +1,47 @@
+#{extends 'Orders/orders.html'/}
+
+<div class="container">
+    #{form @Orders.complete(), method:'POST'}
+    <div class="cart">
+
+        <br/>
+        <h3>
+            <span>ORDER DETAILS</span>
+        </h3>
+
+        <table>
+            <tr>
+                <th>Product Code</th>
+                <th class="name-header">Product Name</th>
+                <th class="name-header">Client Name</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+            </tr>
+            #{list items:refreshedOrder.lineItems, as: 'lineItem'}
+            <tr>
+                <td>${lineItem.product.productId}</td>
+                <td>${lineItem.product.productName}</td>
+                <td>${refreshedOrder.client}</td>
+                <td>R${lineItem.product.productPrice}</td>
+                <td>${lineItem.quantity}</td>                
+            </tr>
+            #{/list}
+        </table>
+
+        <div class="clearfix">
+
+            <div class="right-column">
+                <p>
+                    Postage Cost: <td class="qty"><input type="text" id="postage" name="postage" value="0.00"/>
+                </p> 
+                <p class="total">
+                    Total: R${refreshedOrder.calculateOrderTotal().format('0.00')}<br/><br/>
+                    <input type="submit" class="checkout" value="Complete" />
+                </p>                
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="id" value="${refreshedOrder.id}"/>
+    #{/form}
+</div>
+

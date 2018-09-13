@@ -1,0 +1,66 @@
+#{extends 'main.html'/}
+
+<div class="container">
+
+    <div class="inner-container">
+        #{form @Application.updateShoppingCart(), method:'POST'}
+        <div class="cart">
+
+            <br/>
+            <h3>
+                <span>SHOPPING CART</span>
+            </h3>
+            #{ifErrors}
+
+            #{errors}
+            <center>
+                <p style="font-size: x-large; color: red">${error}</p>
+                <br/>
+            </center>
+            #{/errors}
+
+            #{/ifErrors}
+            <table>
+                <tr>
+                    <th>Remove</th>
+                    <th>Image</th>
+                    <th class="name-header">Name</th>
+                    <th>Model</th>
+                    <th>Product ID</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+                #{list items:cart, as: 'lineItem'}
+                <tr>
+                    <td><a id="link" href="@{Application.delete(lineItem)}">Delete</a></td>
+                    <td class="thumb"><img src="${lineItem.product.productImageUrl}" alt="" /></td>
+                    <td class="name"><a id="link" href="@{Application.product(lineItem.product.id)}">${lineItem.product.productName}</a></td>
+                    <td>${lineItem.product.productCategory}</td>
+                    <td>${lineItem.product.productId}</td>
+                    <td class="qty"><input type="text" id="${lineItem.product.productId}" name="quantity"   value="${lineItem.quantity}"/></td>
+                    <td>R${lineItem.product.productPrice}</td>
+                    <td class="red">R${lineItem.product.productPrice}</td>
+                </tr>
+                #{/list}
+            </table>
+
+            <div class="clearfix">
+
+                <div class="right-column">
+                    <p class="total">
+                        Total: R${totalPrice.format('0.00')}<br/>
+                    </p>
+                    <p>
+                        <input type="submit" class="checkout" value="Update" />
+                        <a class="checkout" href="@{Application.checkout()}">Checkout</a>
+                    </p>
+                    <p><a href="@{Application.continueShopping()}">Continue Shopping &rarr;</a></p>
+                </div>
+            </div>
+
+        </div>
+        #{/form}
+    </div>
+
+</div>

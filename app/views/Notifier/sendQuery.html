@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+
+    <center><img src="http://roseworks.co.za/public/images/mail-logo.jpg"></center>
+
+    <center><p style="color: red">Customer query</p></center>
+    <br/>
+    <h3>
+        <span>CLIENT DETAILS</span>
+    </h3>
+    <table style="border-collapse: collapse">
+        <tr>
+            <td style="width: 100px;">Name</td>
+            <td>${query.fullName}</td>
+        </tr>
+        <tr>
+            <td style="width: 100px;">E-mail</td>
+            <td>${query.email}</td>
+        </tr>
+    </table>
+
+    <br/>
+    <h3>
+        <span>QUERY</span>
+    </h3>
+    ${query.query}
+    <br/>
+</body>
+</html>

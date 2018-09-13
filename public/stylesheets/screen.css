@@ -1,0 +1,146 @@
+/*
+
+Screen Stylesheet for App Portfolio
+Created by Adrian Pelletier
+http://www.designkindle.com
+
+*/
+	
+			
+	/* =Work
+	-------------------------------------------------------------------------- */
+				
+		#work {
+			padding-top: 25px;
+			width: 960px;
+			position: relative;
+			}
+			
+		#work h1 {
+			margin: 0 15px;
+			}
+		
+		/* prev and next controls */
+		
+		#workControls {
+			width: 930px;
+			}
+		
+		#workControls strong {
+			float: left;
+			font-weight: normal;
+			}
+		
+		#workControls span {
+			float: right;
+			position: relative;
+			top: 19px;
+			}
+			
+		#workControls a, #workControls a:visited {
+			margin-left: 8px;
+			width: 60px;
+			height: 32px;
+			display: block;
+			background: url(../images/work-prev-next.png) no-repeat;
+			text-indent: -9999px;
+			overflow: hidden;
+			float: left;
+			}
+			
+		a#prevWork, a#prevWork:visited {
+			background-position: 0 0;
+			}
+			
+		a#prevWork:hover {
+			background-position: 0 -32px;
+			}
+			
+		a#prevWork.disabled {
+			background-position: 0 -64px;
+			cursor: default;
+			}
+			
+		a#nextWork, a#nextWork:visited {
+			background-position: 100% 0;
+			}
+			
+		a#nextWork:hover {
+			background-position: 100% -32px;
+			}
+			
+		a#nextWork.disabled {
+			background-position: 100% -64px;
+			cursor: default;
+			}
+			
+		/* thumbnails */
+		
+		#workThumbs {
+			margin: 0 auto;
+			text-align: center;
+			list-style: none;
+			}
+			
+		#workThumbs li {
+			padding-top: 35px;
+			position: relative;
+			z-index: 1;
+			}
+			
+		#workThumbs span {
+			margin: 0 6px 7px 6px;
+			width: 148px;
+			height: 153px;
+			position: relative;
+			float: left;
+			}
+			
+		#workThumbs a, #workThumbs a:visited, #workThumbs a:hover {
+			margin: 0 auto;
+			width: 130px;
+			height: 130px;
+			display: block;
+			position: relative;
+			z-index: 2;
+			}
+			
+		/* featured work */
+			
+		#workThumbs span#featuredWork {
+			margin: -1px 15px 7px 1px;
+			width: 304px;
+			height: 313px;
+			position: relative;
+			float: left;
+			}
+			
+		#workThumbs span#featuredWork a, #workThumbs span#featuredWork a:visited, #workThumbs span#featuredWork a:hover {
+			margin: 0 auto;
+			width: 301px;
+			height: 290px;
+			display: block;
+			position: relative;
+			z-index: 2;
+			}
+			
+		/* Button Shadow */
+		
+		#workThumbs span img.shadow{
+			margin: 0 auto;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			}
+			
+		#workThumbs span#featuredWork img.shadow {
+			width: 100%;
+			margin: 0 auto;
+			position: absolute;
+			bottom: 0;
+			left: 5px;
+			z-index: 1;
+			}
+			
+

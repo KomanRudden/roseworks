@@ -1,0 +1,66 @@
+#{extends 'main.html'/}
+
+<div class="container">
+
+<br/>
+    <div class="product-listing">
+
+      <h3><span>JUST IN</span></h3>
+
+        <ul class="clearfix">
+            #{list items:justIn, as: 'justIn'}
+                <li class="product">
+                    <a href="@{Application.product(justIn.id)}" class="thumb"><img src="${justIn.productImageUrl}" alt="" /></a>
+                    <a href="@{Application.product(justIn.id)}" class="title">${justIn.productName}</a>
+                    <div class="clearfix info">
+                        #{form @Application.addToCart(justIn.id), method:'POST'}
+                            <input type="submit" class="add-to-cart" value="ADD TO CART" />
+                        #{/form}
+                        <span class="price-text">R<span>${justIn.productPrice}</span></span>
+                    </div>
+                </li>
+            #{/list}
+        </ul>
+    </div>    
+
+    <div class="product-listing">
+
+        <h3><span>LATEST</span></h3>
+
+        <ul class="clearfix">
+            #{list items:latest, as: 'latest'}
+                <li class="product">
+                    <a href="@{Application.product(latest.id)}" class="thumb"><img src="${latest.productImageUrl}" alt="" /></a>
+                    <a href="@{Application.product(latest.id)}" class="title">${latest.productName}</a>
+                    <div class="clearfix info">
+                        #{form @Application.addToCart(latest.id), method:'POST'}
+                            <input type="submit" class="add-to-cart" value="ADD TO CART" />
+                        #{/form}
+                        <span class="price-text">R<span>${latest.productPrice}</span></span>
+                    </div>
+                </li>
+            #{/list}
+        </ul>
+    </div>    
+    
+    <div class="product-listing">
+        <h3><span>MOST POPULAR</span></h3>
+
+        <ul class="clearfix">
+            #{list items:products, as: 'product'}
+                <li class="product">
+                    <a href="@{Application.product(product.id)}" class="thumb"><img src="${product.productImageUrl}" alt="" /></a>
+                    <a href="@{Application.product(product.id)}" class="title">${product.productName}</a>
+                    <div class="clearfix info">
+                        #{form @Application.addToCart(product.id), method:'POST'}
+                            <input type="submit" class="add-to-cart" value="ADD TO CART" />
+                        #{/form}
+                        <span class="price-text">R<span>${product.productPrice}</span></span>
+                    </div>
+                </li>
+            #{/list}
+        </ul>
+    </div>
+</div>
+
+

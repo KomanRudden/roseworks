@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+
+    <center><img src="http://roseworks.co.za/public/images/mail-logo.jpg"></center>
+
+    <center><p style="color: red">Thank you for your order!</p></center>
+    <br/>
+    <p>Once the postage and packaging costs of your order have been calculated you will receive a further email with payment information</p>
+    <h3>
+        <span>CLIENT DETAILS</span>
+    </h3>
+    <table style="border-collapse: collapse">
+        <tr>
+            <td style="width: 100px;">Name</td>
+            <td>${order.client.firstName}</td>
+        </tr>
+        <tr>
+            <td style="width: 100px;">Surname</td>
+            <td>${order.client.surname}</td>
+        </tr>
+        <tr>
+            <td style="width: 100px;">E-mail</td>
+            <td>${order.client.email}</td>
+        </tr>
+        <tr>
+            <td style="width: 100px;">Contact No.</td>
+            <td>${order.client.telephone}</td>
+        </tr>
+    </table>
+    <h3>
+        <span>POSTAL DETAILS</span>
+    </h3>
+    <table style="border-collapse: collapse">
+        <tr>
+            <td style="width: 200px;">Address Line 1</td>
+            <td>${order.client.streetAddressLine1}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">Address Line 2</td>
+            <td>${order.client.streetAddressLine2}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">Province/State/County</td>
+            <td>${order.client.province}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">City</td>
+            <td>${order.client.city}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">Post Code</td>
+            <td>${order.client.streetPostCode}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">Country</td>
+            <td>${order.client.country}</td>
+        </tr>
+        <tr>
+            <td style="width: 200px;">Delivery Type</td>
+            <td>${order.client.deliveryType}</td>
+        </tr>
+    </table>
+
+    <br/>
+    <h3>
+        <span>ITEMS ORDERED</span>
+    </h3>
+    <table style="border: solid 1px black; border-collapse: collapse">
+        <tr>
+            <th style="width: 150px; border: 1px solid black">Name</th>
+            <th style="width: 150px; border: 1px solid black">Model</th>
+            <th style="width: 150px; border: 1px solid black">Product ID</th>
+            <th style="width: 150px; border: 1px solid black">Quantity</th>
+            <th style="width: 150px; border: 1px solid black">Price</th>
+        </tr>
+        #{list items:order.lineItems, as: 'lineItem'}
+        <tr>
+            <td style="width: 150px; border: 1px solid black; text-align: center">${lineItem.product.productName}</td>
+            <td style="width: 150px; border: 1px solid black; text-align: center">${lineItem.product.productCategory}</td>
+            <td style="width: 150px; border: 1px solid black; text-align: center">${lineItem.product.productId}</td>
+            <td style="width: 150px; border: 1px solid black; text-align: center">${lineItem.quantity}</td>
+            <td style="width: 150px; border: 1px solid black; text-align: center">R${lineItem.product.productPrice}</td>
+        </tr>
+        #{/list}
+    </table>
+    <br/>
+    <center>
+        <h4>
+            <span style="color: red">Invoice Total : R${total} (excl shipping)</span>
+        </h4>
+    </center>
+</body>
+</html>

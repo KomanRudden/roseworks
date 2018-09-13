@@ -1,0 +1,58 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# SECURE
+*       /                                       module:secure
+
+# CRUD
+GET     /crud                                   module:crud
+
+# Home
+GET     /                                       Application.index
+
+# Orders
+GET     /orders                                 Orders.orders
+
+# Catalogue
+GET     /catalogue                              Application.catalogue
+
+# Thank you
+POST    /thankYou                               Application.thankYou
+
+# Payment Cancelled
+POST    /paymentCancelled			Application.paymentCancelled
+
+# Payment link
+GET     /paymentLink                            Application.paymentLink
+
+# Product
+GET     /product/{id}                           Application.product
+
+# About Us
+GET     /aboutUs                                Application.aboutUs
+
+# Shopping Cart
+GET    /shoppingCart                            Application.shoppingCart
+
+# Add To Cart
+POST    /addToCart                              Application.addToCart
+
+# Delete
+GET     /delete                                 Application.delete
+
+# Checkout
+GET     /checkout                               Application.checkout
+POST    /index                                  Application.submit
+
+# Payment
+GET     /payment                                Application.payment
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
