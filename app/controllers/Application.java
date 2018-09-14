@@ -83,7 +83,7 @@ public class Application extends Controller {
     }
 
     public static void paymentCancelled() {
-	render();
+	    render();
     }
 
     public static void orderThankYou() {
@@ -91,11 +91,11 @@ public class Application extends Controller {
     }
 
     public static void queryThankYou() {
-	render();
+	    render();
     }
 
     public static void error() {
-	render();
+	    render();
     }
 
     public static void paymentLink(String payuTotal) {
@@ -194,7 +194,10 @@ public class Application extends Controller {
     }
 
     public static void contactUs() {
+        render();
+    }
 
+    public static void legal() {
         render();
     }
 
