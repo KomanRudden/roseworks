@@ -23,7 +23,7 @@ public class Notifier extends Mailer {
         setFrom("do_not_reply@roseworks.co.za");
         setSubject("Roseworks Order Confirmation (Order Ref: " +order.id+ ") "+order.client.firstName +" "+order.client.surname);
         addRecipient(order.client.email);
-	addBcc("roseworks.orders@gmail.com");
+	    addBcc("roseworks.orders@gmail.com");
         addBcc("koman.rudden@gmail.com");
 
         Long total = Application.calculateTotal(order.lineItems);
