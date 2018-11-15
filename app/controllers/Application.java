@@ -24,7 +24,7 @@ public class Application extends Controller {
 
         Logger.info("Play startup...");
 
-	List<Product> justIn = Product.find("select p from Product p where p.id in ('128', '129', '130', '131')").fetch();
+	    List<Product> justIn = Product.find("select p from Product p where p.id in ('128', '129', '130', '131', '132', '133')").fetch();
 
         StringBuilder sb = new StringBuilder("select p from Product p where p.id in ('");
         for (int i = 0; i <= 20; i++) {
