@@ -24,7 +24,7 @@ public class Application extends Controller {
 
         Logger.info("Play startup...");
 
-	List<Product> justIn = Product.find("select p from Product p where p.id in ('132', '133')").fetch();
+	    List<Product> justIn = Product.find("select p from Product p where p.id in ('132', '133')").fetch();
         List<Product> older = Product.find("select p from Product p where p.id in ('130', '131', '128', '129')").fetch();
         justIn.addAll(older);
 
