@@ -179,6 +179,7 @@ public class Application extends Controller {
         Long totalPrice = 0L;
         if (cart != null) {
             for (LineItem cartItem : cart) {
+                Logger.info("Product Price " + cartItem.product.productPrice + ", Quantity " + cartItem.quantity);
                 totalPrice += (cartItem.product.productPrice * cartItem.quantity);
             }
         }

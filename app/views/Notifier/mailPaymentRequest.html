@@ -102,32 +102,10 @@
         <input type="hidden" name="cmd" value="_paynow"/>
         <input type="hidden" name="receiver" value="13497784"/>
         <input type="hidden" name="item_name" value="Pay+Now"/>
-        <input type="hidden" name="amount" value="${payuTotal}"/>
-        <input type="hidden" name="return_url" value="http%3A%2F%2Fwww.roseworks.co.za%2ForderThankYou"/>
-        <input type="hidden" name="cancel_url" value="http%3A%2F%2Fwww.roseworks.co.za%2FpaymentCancelled"/>
+        <input type="hidden" name="amount" value="${payuTotal.format('0.00')}"/>
+        <input type="hidden" name="return_url" value="http://www.roseworks.co.za/thankYou"/>
+        <input type="hidden" name="cancel_url" value="http://www.roseworks.co.za/paymentCancelled"/>
     </div>
-</form>
-<form action="https://secure.safeshop.co.za/SafePay/Lite/Index.asp" method="post" id=frmPay name=frmPay>
-    <div class="bottom clearfix">
-        <center><input type="submit" id="submit" value="Proceed To Secure Payment Portal" /></center>
-    </div>
-    <input type="hidden" name="SafeKey" value="{E0760398-2515-4811-86A8-E11778A18B90}"/>
-    <!-- The Safe Key-->
-    <input type="hidden" name="MerchantReferenceNumber" value="900134990"/>
-    <!-- Merchant Transaction Reference-->
-    <input type="hidden" name="TransactionAmount" value="${payuTotal}"/>
-    <!-- Transaction Amount in Cents -->
-    <input type="hidden" name="CurrencyCode" value="ZAR"/>
-    <!-- Transaction Amount in Cents -->
-    <input type="hidden" name="SafeTrack" value=""/>
-    <!-- Optional - SafeTrack GUID -->
-    <input type="hidden" name="ReceiptURL" value="http://www.roseworks.co.za/thankYou"/>
-    <!-- Transaction Redirect Url-->
-    <input type="hidden" name="FailURL" value="http://www.roseworks.co.za/paymentCancelled"/>
-    <!-- Transaction Failure Redirect Url-->
-    <input type="hidden" name="TransactionType" value="Auth_Settle"/>
-    <!-- Transaction  Type (Auth, Auth_Settle) -->
-</div>
 </form>
     <br/>
     <center>
@@ -139,5 +117,3 @@
 <span style="padding: 0px;"></span>
 </body>
 </html>
-
-
