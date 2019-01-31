@@ -44,7 +44,9 @@ public class Notifier extends Mailer {
 
         Long total = Application.calculateTotal(order.lineItems);
         total += postage;
-        Long payuTotal = total*100;
+        Long payuTotal = total;
+
+        Logger.info("Amount to be paid " + payuTotal);
         
         send(order, total, payuTotal);        
     }

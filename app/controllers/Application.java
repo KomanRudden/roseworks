@@ -24,7 +24,7 @@ public class Application extends Controller {
 
         Logger.info("Play startup...");
 
-	List<Product> justIn = Product.find("select p from Product p where p.id in ('132', '133')").fetch();
+	    List<Product> justIn = Product.find("select p from Product p where p.id in ('132', '133')").fetch();
         List<Product> older = Product.find("select p from Product p where p.id in ('130', '131', '128', '129')").fetch();
         justIn.addAll(older);
 
@@ -179,6 +179,7 @@ public class Application extends Controller {
         Long totalPrice = 0L;
         if (cart != null) {
             for (LineItem cartItem : cart) {
+                Logger.info("Product Price " + cartItem.product.productPrice + ", Quantity " + cartItem.quantity);
                 totalPrice += (cartItem.product.productPrice * cartItem.quantity);
             }
         }

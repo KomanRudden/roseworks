@@ -2,3 +2,7 @@ tmp/
 server.pid
 logs/
 test/
+.idea/
+project
+target
+*.iml
