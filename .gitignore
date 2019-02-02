@@ -6,3 +6,4 @@ test/
 project
 target
 *.iml
+conf/application.conf

@@ -20,6 +20,9 @@ GET     /catalogue                              Application.catalogue
 # Thank you
 POST    /thankYou                               Application.thankYou
 
+# Thank you
+GET    /thankYou                               Application.thankYou
+
 # Payment Cancelled
 POST    /paymentCancelled			Application.paymentCancelled
 
