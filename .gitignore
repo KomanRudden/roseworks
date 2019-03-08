@@ -7,3 +7,4 @@ project
 target
 *.iml
 conf/application.conf
+.vscode
