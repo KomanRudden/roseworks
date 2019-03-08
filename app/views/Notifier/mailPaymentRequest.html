@@ -93,20 +93,10 @@
         <h4>
             <span style="color: red">Invoice Total : R${total} (incl shipping)</span>
         </h4>
-    </center>
-    <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&receiver=13497784&item_name=Pay+Now&amount=${payuTotal.format('0.00')}&return_url=http%3A%2F%2Fwww.roseworks.co.za%2FthankYou&cancel_url=http%3A%2F%2Fwww.roseworks.co.za%2FpaymentCancelled">Pay Now</a>
-    <form action="https://www.payfast.co.za/eng/process" method="post">
-        <div class="bottom clearfix">
-            <center><input type="submit" id="submit" value="Proceed To Secure Payment Portal" /></center>
-        </div>
-        <input type="hidden" name="cmd" value="_paynow"/>
-        <input type="hidden" name="receiver" value="13497784"/>
-        <input type="hidden" name="item_name" value="Pay+Now"/>
-        <input type="hidden" name="amount" value="${payuTotal.format('0.00')}"/>
-        <input type="hidden" name="return_url" value="http://www.roseworks.co.za/thankYou"/>
-        <input type="hidden" name="cancel_url" value="http://www.roseworks.co.za/paymentCancelled"/>
+    </center>    
+    <div class="bottom clearfix">
+        <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&receiver=13497784&item_name=Pay+Now&amount=${payuTotal.format('0.00')}&return_url=http%3A%2F%2Fwww.roseworks.co.za%2FthankYou&cancel_url=http%3A%2F%2Fwww.roseworks.co.za%2FpaymentCancelled">Pay Now</a>
     </div>
-</form>
     <br/>
 <span style="padding: 0px;"></span>
 </body>
