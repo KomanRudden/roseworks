@@ -24,7 +24,7 @@ POST    /thankYou                               Application.thankYou
 GET    /thankYou                               Application.thankYou
 
 # Payment Cancelled
-POST    /paymentCancelled			Application.paymentCancelled
+GET    /paymentCancelled			Application.paymentCancelled
 
 # Payment link
 GET     /paymentLink                            Application.paymentLink
