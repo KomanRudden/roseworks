@@ -26,8 +26,10 @@ public class Application extends Controller {
 
         Logger.info("Play startup...");
 
-	List<Product> justIn = Product.find("select p from Product p where p.id in ('147', '146', '139', '140', '141', '142', '143', '144', '145')").fetch();
+	List<Product> justIn = Product.find("select p from Product p where p.id in ('151', '152', '147', '146', '139', '140', '141', '142', '143', '144', '145')").fetch();
 	Collections.reverse(justIn);
+	List<Product> books = Product.find("select p from Product p where p.id in ('148', '149', '150')").fetch();
+	Collections.reverse(books);
         List<Product> older = Product.find("select p from Product p where p.id in ('138', '137', '136', '132', '133', '134', '135', '130', '131', '128', '129')").fetch();
         justIn.addAll(older);
 
@@ -40,7 +42,7 @@ public class Application extends Controller {
 
         List<Product> latest = Product.find(sb.toString()).fetch();
         List<Product> products = Product.find("select p from Product p order by p.totalSold desc and p.difficulty = '3'").fetch(16);
-        render(justIn, latest, products);
+        render(justIn, books, latest, products);
     }
 
     private static int getRandomIndex() {

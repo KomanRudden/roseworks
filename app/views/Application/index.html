@@ -25,6 +25,26 @@
 
     <div class="product-listing">
 
+        <h3><span>HONEY TALES CHILDRENS POETRY BOOKS</span></h3>
+
+        <ul class="clearfix">
+            #{list items:books, as: 'book'}
+                <li class="product">
+                    <a href="@{Application.product(book.id)}" class="thumb"><img src="${book.productImageUrl}" alt="" /></a>
+                    <a href="@{Application.product(book.id)}" class="title">${book.productName}</a>
+                    <div class="clearfix info">
+                        #{form @Application.addToCart(book.id), method:'POST'}
+                            <input type="submit" class="add-to-cart" value="ADD TO CART" />
+                        #{/form}
+                        <span class="price-text">R<span>${book.productPrice}</span></span>
+                    </div>
+                </li>
+            #{/list}
+        </ul>
+    </div>
+
+    <div class="product-listing">
+
         <h3><span>LATEST</span></h3>
 
         <ul class="clearfix">
